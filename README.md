@@ -2,27 +2,27 @@
 
 ## Requirements
  - Chrome Browser (recent version)
+ - The Zoneboard package, get it from [the releases tab](https://github.com/tsilen/zoneboard/releases).
  - redis-server (for windows see e.g. https://github.com/MicrosoftArchive/redis/releases)
 
 ## Running
   - Run zoneboard-app-win.exe / zoneboard-app-linux / zoneboard-app-macos
 
-## Player images
-- Placed under `images/players` in .jpg format
-- Fix rotation, e.g.: remove exifdata: `exiftool -all= *.jpg`, rotate 90deg left: `mogrify -rotate "90" *.jpg`
-- Above commands come with imagemagick
-- You will need to run the build script after adding images
-
 ## Teams
 - Modify team rosters in `conf/tournament.json`
 - Logo files are placed under `images/teams` in .png format
-- Logo filenames should be team names with all non-characters and non-digits replaced with underscore `_`
+- Logo filenames should be team names in lower case with all non-alphanumeric characters replaced with underscore `_`.
+
+## Player images
+- Place under `images/players` in .jpg format
+- File names should match player aliases on the player cards and in the `conf/tournament.json`, but be in lower case and have all non-alphanumeric characters replaced with underscore `_`.
+- Fix rotation, e.g.: remove exifdata: `exiftool -all= *.jpg`, rotate 90deg left: `mogrify -rotate "90" *.jpg`
+- Above commands come with imagemagick. Feel free to use other image editors.
+- E.g. if the alias on the card is `[TEAM] The player` the filename would be `_team__the_player.jpg`.
 
 ## Misc
 - Game logs are saved under `gamelogs/`
-- can be replayed with `node --experimental-modules backend/bin/replay-game.mjs <logfile.json>`
 
 ## Dev Requirements
-- node.js 10.x (https://nodejs.org/en/)
-- yarn
-- source code is in a separate repo. Request access if needed.
+- source code has been moved to a separate private repository. Request access if needed.
+- Feel free to create issues to this repo if there are any.
